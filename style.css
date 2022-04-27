@@ -1,0 +1,220 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+}
+
+td {
+    width: 150px;
+    height: 150px;
+    border: 8px solid #FF4E0E;
+    padding-left: 16px;
+}
+
+tr:first-child td {
+    border-top: 0;
+}
+
+tr:last-child td {
+    border-bottom: 0;
+}
+
+td:hover {
+    background-color: rgba(118, 210, 245, 0.5);
+}
+
+td:first-child {
+    border-left: 0;
+}
+
+td:last-child {
+    border-right: 0;
+}
+
+.playing-field {
+    position: relative;
+    margin-top: 32px;
+}
+
+.player {
+    text-align: center;
+    padding: 16px;
+    font-size: 32px;
+}
+
+.player img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+}
+
+.inactive {
+    opacity: 0.5;
+}
+
+.horizontal-line {
+    height: 10px;
+    background-color: rgba(118, 210, 245, 0.5);
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+
+}
+
+.rotate-vertical {
+    transform: rotate(90deg);
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.d-none {
+    display: none;
+}
+
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    object-fit: cover;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.restart-btn {
+    position: absolute;
+    top: 35vh;
+    left: 22vw;
+    background-color: #F21010;
+    border-radius: 10px;
+    padding: 8px;
+    padding-right: 18px;
+    padding-left: 18px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 60px;
+    font-family: 'Bungee', serif;
+    z-index: 2;
+    border: none;
+    cursor: pointer;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+.restart-btn:hover {
+    background-color: #F92323;
+}
+
+@media(max-width: 1000px) {
+
+    body {
+        display: block;
+    }
+
+    .player img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .player {
+        font-size: 16px;
+    }
+
+    #player-circle {
+        position: absolute;
+        top: 0;
+    }
+
+    #player-cross {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .playing-field {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        left: 5%;
+        display: flex;
+        justify-content: center;
+    }
+
+    td {
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+
+    td img {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #line-0 {
+        top: 10% !important;
+    }
+
+    #line-1 {
+        top: 45% !important;
+    }
+
+    #line-2 {
+        top: 80% !important;
+    }
+
+    #line-3 {
+        top: 45% !important;
+        right: 35% !important;
+    }
+    
+    #line-4 {
+        top: 45% !important;
+    }
+    
+    #line-5 {
+        top: 45% !important;
+        left: 35% !important;
+    }
+
+
+
+    .horizontal-line {
+        height: 32px;
+    }
+
+    .game-over {
+        object-fit: fill;
+    }
+
+    .restart-btn {
+        top: 30%;
+        margin: 32px;
+        left: 0;
+        right: 0;
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 32px;
+    }
+
+}
